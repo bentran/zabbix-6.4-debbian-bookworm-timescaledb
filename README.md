@@ -17,10 +17,11 @@ The server hostname can be set to "**zabbix01"** using
 
 ##### Set the Locale
 
-Set the system Locale. For example set to: **en_AU.UTF-8**
+Set the Local to your local. For example: **en_AU.UTF-8** en_US is also needed due to Zabbix bug.
 
-	sudo locale-gen --purge en_AU.UTF-8
-	sudo dpkg-reconfigure --frontend noninteractive locales
+	sudo sed -i '/^#.* en_US.UTF-8 /s/^#//' /etc/locale.gen
+	sudo sed -i '/^#.* en_AU.UTF-8 /s/^#//' /etc/locale.gen
+	sudo locale-gen
 
 ##### Set the Timezone
 
