@@ -3,6 +3,8 @@ Install Zabbix 6.4 on Debian 12 (Bookworm) with Postgres 15 and TimescaleDB 2.11
 
 Below instructions were put together after I had lots of trouble trying to get Zabbix 6.4 working on Debian 12 (bookworm) with TimescaleDB.
 
+Below steps are expected to be executed on a Debian system with sudo working. When installing the Debian OS, do not set the root password. This will force Debian installer to install sudo as default.
+
 ### References
 Ref: https://www.zabbix.com/download?zabbix=6.4&os_distribution=debian&os_version=12&components=server_frontend_agent&db=pgsql&ws=nginx
 
@@ -64,7 +66,7 @@ Set host banner to show IP Address
 ---
 ## Setup Nginx Web Server
 
-	sudo apt install nginx
+	sudo apt install nginx -y
 
 Ref: https://ubiq.co/tech-blog/change-nginx-port-number-ubuntu/
 
@@ -119,11 +121,11 @@ Note: Do not install the OSS version of TimescaleDB as it does not support Compr
 	sudo chmod +x packagecloud.io-repo-timescaledb.sh
 	sudo ./packagecloud.io-repo-timescaledb.sh
 
-	sudo apt-get update
+	sudo apt-get update -y
 
 Install TimescaleDB
 	
-	sudo apt-get install timescaledb-2-2.11.2-postgresql-15=2.11.2~debian12
+	sudo apt-get install timescaledb-2-2.11.2-postgresql-15=2.11.2~debian12 -y
 
 ##### Run the initial timescalDB tune
 
@@ -198,8 +200,8 @@ If connection is successful. Quit out of the Postgres shell using:
 
 	sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
 	sudo dpkg -i zabbix-release_6.4-1+debian12_all.deb
-	sudo apt update
-	sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
+	sudo apt update -y
+	sudo apt install zabbix-server-pgsql zabbix-frontend-php php8.2-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent -y
 
 ##### Create postgres zabbix user and database. This will be used by Zabbix to acces the zabbix database
 
