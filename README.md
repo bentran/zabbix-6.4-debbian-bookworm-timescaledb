@@ -6,12 +6,6 @@ Below instructions were put together after I had lots of trouble trying to get Z
 ### References
 Ref: https://www.zabbix.com/download?zabbix=6.4&os_distribution=debian&os_version=12&components=server_frontend_agent&db=pgsql&ws=nginx
 
-## System Requirements
-
-1) Nginx must be installed and running with the default website
-1) Postgres & TimescaleDB 2.11.2 must be installed and working. Higher version of TimescaleDB will not be compatible with Zabix version 6.4
-1) Firewall-cmd must be installed and working
-
 ---
 ## Server Setup Prep Steps
 
