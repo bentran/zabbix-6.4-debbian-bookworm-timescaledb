@@ -15,7 +15,7 @@ The server hostname can be set to "**zabbix01"** using
 
 ##### Set the Locale
 
-Set the Local to your local. For example: **en_AU.UTF-8**
+Set the system Locale. For example set to: **en_AU.UTF-8**
 
 	sudo locale-gen --purge en_AU.UTF-8
 	sudo dpkg-reconfigure --frontend noninteractive locales
